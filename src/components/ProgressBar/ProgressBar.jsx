@@ -9,7 +9,7 @@ const ProgressBar = ({ height = "5px", value }) => {
     >
       <div
         className={styles["progressBar--active"]}
-        style={{ width: `${0.5 * 100}%`, minHeight: height }}
+        style={{ width: `${value * 100}%`, minHeight: height }}
       ></div>
     </div>
   );

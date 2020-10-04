@@ -22,8 +22,20 @@ const VotingPage = (props) => {
 
   useEffect(() => {
     fetchAndSetQuizById();
-    fetchAndSetQuizes(setQuizes);
+    fetchAndSetQuizes({ setQuizes });
   }, [id]);
+
+  const handleVote = async (choiceId) => {
+    await axios.post(
+      `https://dev-goli.herokuapp.com/api/quizes/${id}/vote`,
+      {
+        quiz: parseInt(id),
+        user: localStorage.user ? JSON.parse(localStorage.user) : "stepan",
+        choice: choiceId,
+      },
+      { timeout: 20000 }
+    );
+  };
 
   const history = useHistory();
 
@@ -32,13 +44,7 @@ const VotingPage = (props) => {
       <Navigation />
       <div style={{ background: "#F3F3F3" }}>
         <div className="flex flex-center">
-          <img
-            src={Hand}
-            className={styles.leftHand}
-            height="238.1"
-            width="238.1"
-            alt="leftHand"
-          />
+          <img src={Hand} className={styles.leftHand} alt="leftHand" />
           <h2 id="votings">Voting</h2>
           <img src={Hand} className={styles.rightHand} alt="rightHand" />
         </div>
@@ -46,7 +52,7 @@ const VotingPage = (props) => {
           <div className={styles.card}>
             <h4>{currentQuiz?.quiz_type}</h4>
             <h2>{currentQuiz?.title}</h2>
-            <h3>{`Author: ${currentQuiz?.vote_detail?.author}`}</h3>
+            <h3>{`${currentQuiz?.vote_detail?.author || "Anonymous"}`}</h3>
             <p>{currentQuiz?.description}</p>
             <div
               className={styles.answers}
@@ -63,43 +69,47 @@ const VotingPage = (props) => {
               <Button
                 variant="secondary--inactive"
                 style={{
-                  padding: "11px 197px",
+                  padding: "11px",
                   width: "418px",
                   border: "1px solid #c4c4c4",
                 }}
+                onClick={() => handleVote(1)}
               >
                 {currentQuiz?.vote_detail?.definition1}
               </Button>
               <Button
                 variant="secondary--inactive"
                 style={{
-                  padding: "11px 197px",
+                  padding: "11px ",
                   width: "418px",
                   border: "1px solid #c4c4c4",
                 }}
                 className="mt2"
+                onClick={() => handleVote(2)}
               >
                 {currentQuiz?.vote_detail?.definition2}
               </Button>
               <Button
                 variant="secondary--inactive"
                 style={{
-                  padding: "11px 197px",
+                  padding: "11px ",
                   width: "418px",
                   border: "1px solid #c4c4c4",
                 }}
                 className="mt2"
+                onClick={() => handleVote(3)}
               >
                 {currentQuiz?.vote_detail?.definition3}
               </Button>
               <Button
                 variant="secondary--inactive"
                 style={{
-                  padding: "11px 197px",
+                  padding: "11px ",
                   width: "418px",
                   border: "1px solid #c4c4c4",
                 }}
                 className="mt2"
+                onClick={() => handleVote(4)}
               >
                 {currentQuiz?.vote_detail?.definition4}
               </Button>
@@ -109,10 +119,18 @@ const VotingPage = (props) => {
         <h4 className={styles.topic}>More from this topic</h4>
         <div
           className="flex"
-          style={{ overflowX: "scroll", margin: "40px 178px" }}
+          style={{
+            overflowX: "scroll",
+            overflowY: "hidden",
+            margin: "40px 178px 0px",
+          }}
         >
           {quizes
-            .filter((q) => q?.quiz_type === currentQuiz?.quiz_type)
+            .filter(
+              (q) =>
+                q?.quiz_type === currentQuiz?.quiz_type &&
+                q?.id !== currentQuiz?.id
+            )
             .map((quiz, index) => {
               return (
                 <div
@@ -121,7 +139,7 @@ const VotingPage = (props) => {
                 >
                   <h4 className={styles["h4-1"]}>{quiz.quiz_type || "Art"}</h4>
                   <h3>{quiz.title}</h3>
-                  <h5>{quiz?.voteDetails?.author || "Автор: Люся Ветрова"}</h5>
+                  <h5>{quiz?.voteDetails?.author || "Anonymous"}</h5>
                   <p>{quiz.description}</p>
                   <div>
                     <ProgressBar value={quiz.indicator_value} height="10px" />

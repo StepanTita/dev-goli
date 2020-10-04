@@ -9,7 +9,7 @@ const ExampleQuizes = () => {
   const [quizes, setQuizes] = useState([]);
 
   useEffect(() => {
-    fetchAndSetQuizes(setQuizes);
+    fetchAndSetQuizes({ setQuizes });
   }, []);
 
   return (

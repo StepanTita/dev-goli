@@ -16,24 +16,56 @@ const VotingsPage = (props) => {
   const [currentCategory, setCurrentCategory] = useState("Latest");
   const history = useHistory();
 
+  const [count, setCount] = useState(1);
+
+  const generatePages = (count) => {
+    const buttons = [];
+    for (let i = 1; i < Math.floor(count / 4); i++) {
+      buttons.push(
+        <Button
+          variant="secondary--inactive"
+          style={{
+            borderRadius: "100%",
+            width: "60px",
+            height: "60px",
+            border:
+              currentPage === i + 1 ? "1px solid black" : "1px solid #979797",
+            color: currentPage === i + 1 ? "black" : "#979797",
+          }}
+          className="ml2"
+          onClick={() => setCurrentPage(i + 1)}
+        >
+          {i}
+        </Button>
+      );
+    }
+    return buttons;
+  };
+
   useEffect(() => {
-    fetchAndSetQuizes(setQuizes);
+    fetchAndSetQuizes({
+      setQuizes,
+      setCount,
+      page_size: 100,
+      page: currentPage,
+    });
   }, []);
 
-  useEffect(() => {}, [currentPage]);
+  useEffect(() => {
+    fetchAndSetQuizes({
+      setQuizes,
+      setCount,
+      page_size: 100,
+      page: currentPage,
+    });
+  }, [currentPage, currentCategory]);
 
   return (
     <div className={styles.votingsPage}>
       <Navigation />
       <div style={{ background: "#F3F3F3" }}>
         <div className="flex flex-center">
-          <img
-            src={Hand}
-            className={styles.leftHand}
-            height="238.1"
-            width="238.1"
-            alt="leftHand"
-          />
+          <img src={Hand} className={styles.leftHand} alt="leftHand" />
           <h2 id="votings">Votings</h2>
 
           <img src={Hand} className={styles.rightHand} alt="rightHand" />
@@ -58,7 +90,8 @@ const VotingsPage = (props) => {
         {/* <Search /> */}
         <div className="flex flex-center" style={{ margin: "44px 0px" }}>
           {quizes
-            .filter((_, index) => index === 0 || index === 1)
+            .filter((q) => q.quiz_type === currentCategory)
+            .filter((val, i) => i === 0 || i === 1)
             .map((quiz, index) => (
               <div
                 className={cx(styles.card, { ml44: index !== 0 })}
@@ -66,7 +99,7 @@ const VotingsPage = (props) => {
               >
                 <h4 className={styles["h4-1"]}>{quiz.quiz_type || "Art"}</h4>
                 <h3>{quiz.title}</h3>
-                <h5>{quiz?.voteDetails?.author || "Автор: Люся Ветрова"}</h5>
+                <h5>{quiz?.voteDetails?.author || "Anonymous"}</h5>
                 <p>{quiz.description}</p>
                 <div>
                   <ProgressBar value={quiz.indicator_value} height="10px" />
@@ -117,6 +150,7 @@ const VotingsPage = (props) => {
               variant="primary"
               className="ml3"
               style={{ padding: "15px 72px" }}
+              onClick={() => history.push("/createVoting")}
             >
               CREATE
             </Button>
@@ -124,7 +158,9 @@ const VotingsPage = (props) => {
         </div>
         <div className="flex flex-center" style={{ margin: "44px 0px 0px" }}>
           {quizes
-            .filter((_, index) => index === 2 || index === 3)
+            .filter((q) => q.quiz_type === currentCategory)
+
+            .filter((val, i) => i === 2 || i === 3)
             .map((quiz, index) => (
               <div
                 className={cx(styles.card, { ml3: index !== 0 })}
@@ -132,7 +168,7 @@ const VotingsPage = (props) => {
               >
                 <h4 className={styles["h4-1"]}>{quiz.quiz_type || "Art"}</h4>
                 <h3>{quiz.title}</h3>
-                <h5>{quiz?.voteDetails?.author || "Автор: Люся Ветрова"}</h5>
+                <h5>{quiz?.voteDetails?.author || "Anonymous"}</h5>
                 <p>{quiz.description}</p>
                 <div>
                   <ProgressBar value={quiz.indicator_value} height="10px" />
@@ -155,48 +191,7 @@ const VotingsPage = (props) => {
             ))}
         </div>
         <div className="flex flex-center mx-auto mt3">
-          <Button
-            variant="secondary--inactive"
-            style={{
-              borderRadius: "100%",
-              padding: "10px 15px",
-              border:
-                currentPage === 1 ? "1px solid black" : "1px solid #979797",
-              color: currentPage === 1 ? "black" : "#979797",
-            }}
-            onClick={() => setCurrentPage(1)}
-          >
-            1
-          </Button>
-          <Button
-            variant="secondary--inactive"
-            style={{
-              borderRadius: "100%",
-              padding: "10px 15px",
-              border:
-                currentPage === 2 ? "1px solid black" : "1px solid #979797",
-              color: currentPage === 2 ? "black" : "#979797",
-            }}
-            className="ml2"
-            onClick={() => setCurrentPage(2)}
-          >
-            2
-          </Button>
-
-          <Button
-            variant="secondary--inactive"
-            style={{
-              borderRadius: "100%",
-              padding: "10px 15px",
-              border:
-                currentPage === 3 ? "1px solid black" : "1px solid #979797",
-              color: currentPage === 3 ? "black" : "#979797",
-            }}
-            className="ml2"
-            onClick={() => setCurrentPage(3)}
-          >
-            3
-          </Button>
+          {generatePages(count)}
         </div>
       </div>
       <Footer />
