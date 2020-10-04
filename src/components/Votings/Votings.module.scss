@@ -1,0 +1,119 @@
+.leftHand {
+  filter: drop-shadow(4px 10px 9px rgba(0, 0, 0, 0.14));
+  transform: rotate(1.78deg);
+  left: 35px;
+  position: relative;
+  transform: scaleX(-1);
+}
+.rightHand {
+  filter: drop-shadow(4px 10px 9px rgba(0, 0, 0, 0.14));
+  right: 56px;
+  position: relative;
+}
+.categories {
+  height: 35px;
+  button {
+    padding: 7.5px 33px;
+  }
+}
+.votings {
+  background: rgba(249, 249, 249, 1);
+
+  h2 {
+    //styleName: web / H2;
+    font-family: Work Sans;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  h5 {
+    //styleName: web / text bold;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(181, 181, 181, 1);
+  }
+}
+.card {
+  height: 410px;
+  width: 380px;
+  left: 0px;
+  top: 1px;
+  border-radius: 7px;
+  background: white;
+  padding: 22px 28px;
+  position: relative;
+  .h4-1 {
+    //styleName: web / text bold;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #f4a03d;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+  }
+  h3 {
+    font-family: Work Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  h5 {
+    //styleName: web / text;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  p {
+    //styleName: web / text;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .h5 {
+    //styleName: web / text bold;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+    position: absolute;
+    bottom: 0;
+    right: 19px;
+  }
+  .h4 {
+    font-family: Noto Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #4f4f4f;
+  }
+}

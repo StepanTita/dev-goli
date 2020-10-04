@@ -1,0 +1,40 @@
+.features {
+  margin: 94px 178px;
+  h2 {
+    //styleName: web / H2;
+    font-family: Work Sans;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+  }
+}
+.featuresCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  width: 324px;
+  left: 0px;
+  top: 0px;
+  border-radius: 7px;
+  background: #f9f9f9;
+
+  h3 {
+    //styleName: web/card header;
+    font-family: Work Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  &--highlight {
+    box-shadow: 0px 4px 42px 0px rgba(0, 0, 0, 0.11);
+  }
+}

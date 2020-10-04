@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/dev-goli/static/css/main.77517269.chunk.css",
+    "main.js": "/dev-goli/static/js/main.6c69e5d8.chunk.js",
+    "main.js.map": "/dev-goli/static/js/main.6c69e5d8.chunk.js.map",
+    "runtime-main.js": "/dev-goli/static/js/runtime-main.10354c2e.js",
+    "runtime-main.js.map": "/dev-goli/static/js/runtime-main.10354c2e.js.map",
+    "static/js/2.30ac2293.chunk.js": "/dev-goli/static/js/2.30ac2293.chunk.js",
+    "static/js/2.30ac2293.chunk.js.map": "/dev-goli/static/js/2.30ac2293.chunk.js.map",
+    "index.html": "/dev-goli/index.html",
+    "precache-manifest.a4c95bd63c6d376dc0a04d8971b7c4fa.js": "/dev-goli/precache-manifest.a4c95bd63c6d376dc0a04d8971b7c4fa.js",
+    "service-worker.js": "/dev-goli/service-worker.js",
+    "static/css/main.77517269.chunk.css.map": "/dev-goli/static/css/main.77517269.chunk.css.map",
+    "static/js/2.30ac2293.chunk.js.LICENSE.txt": "/dev-goli/static/js/2.30ac2293.chunk.js.LICENSE.txt",
+    "static/media/Hand.png": "/dev-goli/static/media/Hand.41bcb628.png",
+    "static/media/Human1.png": "/dev-goli/static/media/Human1.8424260a.png",
+    "static/media/Human2.png": "/dev-goli/static/media/Human2.258beabd.png",
+    "static/media/Human3.png": "/dev-goli/static/media/Human3.d167f80f.png",
+    "static/media/Human4.png": "/dev-goli/static/media/Human4.b4c6df1f.png",
+    "static/media/Logo.png": "/dev-goli/static/media/Logo.5628146b.png",
+    "static/media/Rocket.png": "/dev-goli/static/media/Rocket.7dba509a.png",
+    "static/media/WhyChooseUs.png": "/dev-goli/static/media/WhyChooseUs.750d3c9c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.10354c2e.js",
+    "static/js/2.30ac2293.chunk.js",
+    "static/css/main.77517269.chunk.css",
+    "static/js/main.6c69e5d8.chunk.js"
+  ]
+}

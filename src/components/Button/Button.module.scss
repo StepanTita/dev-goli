@@ -1,0 +1,34 @@
+.button {
+  font-family: Noto Sans;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  border: 0px;
+  border-radius: 7px;
+
+  &--primary {
+    background: #ffb803;
+    border: 2px solid #ffb803;
+    color: white;
+    filter: brightness(1);
+    transition: filter 0.3s;
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+  &--secondary {
+    background: transparent;
+    border: 2px solid #ffb803;
+    color: #ffb803;
+
+    &--inactive {
+      background: transparent;
+
+      color: rgba(158, 158, 158, 1);
+      border: 2px solid #9e9e9e;
+    }
+  }
+}
