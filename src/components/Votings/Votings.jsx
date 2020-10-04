@@ -5,26 +5,32 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import Hand from "../../assets/images/Hand.png";
 import styles from "./Votings.module.scss";
 import cx from "classnames";
+import { useHistory } from "react-router";
+import BackgroundShapes from "../BackgroundShapes/BackgroundShapes";
+
+export const categories = [
+  { title: "Latest" },
+  { title: "Art" },
+  { title: "Politics" },
+  { title: "Science" },
+  { title: "Sport" },
+];
+
+export const fetchAndSetQuizes = async (setQuizes) => {
+  const quizes = await axios.get("https://dev-goli.herokuapp.com/api/quizes");
+
+  setQuizes(quizes.data.results);
+};
+
 const Votings = (props) => {
   const [currentCategory, setCurrentCategory] = useState("Latest");
   const [quizes, setQuizes] = useState([]);
-  const categories = [
-    { title: "Latest" },
-    { title: "Art" },
-    { title: "Politics" },
-    { title: "Science" },
-    { title: "Sport" },
-  ];
-
-  const fetchAndSetQuizes = async () => {
-    const quizes = await axios.get("https://dev-goli.herokuapp.com/api/quizes");
-
-    setQuizes(quizes.data);
-  };
 
   useEffect(() => {
-    fetchAndSetQuizes();
+    fetchAndSetQuizes(setQuizes);
   }, []);
+
+  const history = useHistory();
 
   return (
     <div className={cx(styles.votings, "pb3")}>
@@ -84,6 +90,9 @@ const Votings = (props) => {
         variant="primary"
         className="mt3 mx-auto"
         style={{ padding: "22.5px 66px" }}
+        onClick={() => {
+          history.push("/votings");
+        }}
       >
         VIEW ALL
       </Button>

@@ -4,15 +4,12 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import styles from "./ExampleQuizes.module.scss";
 import cx from "classnames";
 import { ShortArrowLeft, ShortArrowRight } from "../../assets/images/svgs";
+import { fetchAndSetQuizes } from "../Votings/Votings";
 const ExampleQuizes = () => {
   const [quizes, setQuizes] = useState([]);
 
-  const fetchAndSetQuizes = async () => {
-    const quizes = await axios.get("https://dev-goli.herokuapp.com/api/quizes");
-    setQuizes(quizes.data);
-  };
   useEffect(() => {
-    fetchAndSetQuizes();
+    fetchAndSetQuizes(setQuizes);
   }, []);
 
   return (

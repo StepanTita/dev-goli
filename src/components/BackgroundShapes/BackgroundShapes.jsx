@@ -155,7 +155,7 @@ const BackgroundShapes = (props) => {
         style={{
           position: "absolute",
 
-          top: "3228px",
+          top: "328px",
 
           zIndex: -1,
         }}

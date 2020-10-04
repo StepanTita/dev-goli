@@ -1,0 +1,143 @@
+.leftHand {
+  filter: drop-shadow(4px 10px 9px rgba(0, 0, 0, 0.14));
+  transform: rotate(1.78deg);
+  left: 35px;
+  position: relative;
+  transform: scaleX(-1);
+}
+.rightHand {
+  filter: drop-shadow(4px 10px 9px rgba(0, 0, 0, 0.14));
+  right: 56px;
+  position: relative;
+}
+.votingPage {
+  h2 {
+    //styleName: web / H2;
+    font-family: Work Sans;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+}
+
+.card {
+  height: 596px;
+  left: 0px;
+  top: 0px;
+  border-radius: 7px;
+  background: white;
+  margin: 0px 178px;
+  padding: 55px 75px;
+
+  h4 {
+    //styleName: web/card header;
+    font-family: Work Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #f4a03d;
+  }
+  h2 {
+    //styleName: web / H2;
+    font-family: Work Sans;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  h3 {
+    //styleName: web / text bold;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #a8a8a8;
+  }
+  p {
+    //styleName: web / text;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+}
+.answers {
+  h2 {
+    //styleName: web/card header;
+    font-family: Work Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+}
+.topic {
+  //styleName: web / H4;
+  margin: 80px 178px 40px;
+
+  font-family: Work Sans;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  margin-block-end: 0em;
+}
+.card2 {
+  height: 547px;
+  width: 495px;
+  left: 0px;
+  top: 1px;
+  border-radius: 7px;
+  background: white;
+  padding: 37px;
+  position: relative;
+
+  h3 {
+    font-family: Work Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  h5 {
+    //styleName: web / text;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  p {
+    //styleName: web / text;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+}
